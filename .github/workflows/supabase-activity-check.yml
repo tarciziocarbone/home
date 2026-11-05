@@ -1,0 +1,44 @@
+name: Supabase activity check
+
+on:
+  schedule:
+    # 09:11, 13:11, and 17:11 in Sao Paulo (UTC-3).
+    - cron: '11 12,16,20 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  activity-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Call the read-only activity RPC
+        shell: bash
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_PUBLISHABLE_KEY" ]]; then
+            echo "Set the SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY repository variables." >&2
+            exit 1
+          fi
+
+          response="$(curl \
+            --fail \
+            --silent \
+            --show-error \
+            --request POST \
+            --header "apikey: ${SUPABASE_PUBLISHABLE_KEY}" \
+            --header 'Content-Type: application/json' \
+            --data '{}' \
+            "${SUPABASE_URL%/}/rest/v1/rpc/activity_check")"
+
+          if [[ "$response" != "true" ]]; then
+            echo "Supabase returned an unexpected activity-check response." >&2
+            exit 1
+          fi
+
+          echo "Supabase read-only activity check succeeded."
