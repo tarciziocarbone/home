@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a18">
+  <title>Arquivo de escuta — minhas listas</title>
+  <style>
+    :root{color-scheme:dark;--bg:#101a18;--text:#edf0e8;--muted:#a4b4aa;--accent:#c6e3a1;--line:#30443b}*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(ellipse at 90% 0%,#293c2a 0,transparent 44%),var(--bg);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:1050px;margin:auto;padding:72px 34px 60px}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.19em;font-size:11px;font-weight:700}h1{font:clamp(42px,7vw,76px)/1.06 Georgia,serif;letter-spacing:-.035em;margin:18px 0 22px}h1 em{font-weight:400;color:var(--accent)}.intro{max-width:650px;color:var(--muted)}.section-label{margin:64px 0 18px;color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase}.lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{display:flex;flex-direction:column;min-height:235px;padding:27px;border:1px solid var(--line);border-radius:12px;background:#16231fca;color:inherit;text-decoration:none;transition:border-color .2s,transform .2s,background .2s}.card:hover{border-color:#8ca77c;transform:translateY(-3px);background:#1b2d25}.card:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.number{font-size:12px;color:var(--accent);letter-spacing:.1em}.card h2{font:28px/1.2 Georgia,serif;margin:20px 0 10px}.card p{margin:0;color:var(--muted);font-size:14px;max-width:380px}.open{margin-top:auto;padding-top:25px;color:var(--accent);font-size:13px;font-weight:600}footer{margin-top:55px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:12px}@media(max-width:650px){main{padding:44px 20px}.section-label{margin-top:46px}.lists{grid-template-columns:1fr}.card{min-height:190px}}
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Arquivo pessoal · música</div>
+      <h1>Minhas listas<br><em>de escuta</em></h1>
+      <p class="intro">Um lugar para reunir as descobertas musicais, ouvir com calma e acompanhar o que ainda falta explorar.</p>
+    </header>
+    <p class="section-label">Escolha uma lista</p>
+    <nav class="lists" aria-label="Listas de escuta">
+      <a class="card" href="https://tarciziocarbone.github.io/forest-cosmic-horror-list/forest/">
+        <span class="number">01 / FLORESTA</span>
+        <h2>Forest-y Cosmic Horror</h2>
+        <p>Bandas e artistas para mergulhar em atmosferas sombrias, misteriosas e cósmicas.</p>
+        <span class="open">Abrir lista ↗</span>
+      </a>
+      <a class="card" href="https://tarciziocarbone.github.io/forest-cosmic-horror-list/hard-rock/">
+        <span class="number">02 / PESO</span>
+        <h2>Hard Rock e estilos relacionados</h2>
+        <p>Uma seleção de artistas, álbuns e sons pesados para conhecer aos poucos.</p>
+        <span class="open">Abrir lista ↗</span>
+      </a>
+    </nav>
+    <footer>Suas listas, no seu ritmo.</footer>
+  </main>
+</body>
+</html>
