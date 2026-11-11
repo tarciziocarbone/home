@@ -951,6 +951,7 @@ async function fetchCloudState({mergeLocal = false} = {}) {
       .select('artist_key')
       .eq('user_id', currentUser.id)
       .not('artist_key', 'like', 'hard-rock:%')
+      .not('artist_key', 'like', 'beautiful-songs:%')
       .eq('is_removed', true);
     if (error) throw error;
     removed = new Set((data || []).map(row => row.artist_key));
@@ -994,7 +995,8 @@ async function removeAllStateFromCloud() {
     .from('artist_state')
     .delete()
     .eq('user_id', currentUser.id)
-    .not('artist_key', 'like', 'hard-rock:%');
+    .not('artist_key', 'like', 'hard-rock:%')
+    .not('artist_key', 'like', 'beautiful-songs:%');
   if (error) reportCloudError(error);
   else saveStatus.textContent = 'Sincronizado com o Supabase';
 }
